@@ -175,32 +175,43 @@ export default class App extends LightningElement {
   title = "Welcome to Lightning Web Components!";
 
   showFeatures = true;
+  r1c1;
+  r1c2;
+  r2c1;
+  r2c2;
+  addRow = false;
+  
+  
+   row1c1(event){
+   this.r1c1 = event.target.value;
+   
+}
 
-  /**
-   * Getter for the features property
-   */
-  get features() {
-    return [
-      {
-        label: "Learn in the browser.",
-        icon: "utility:edit",
-      },
-      {
-        label: "View changes to code instantly with Live Compilation.",
-        icon: "utility:refresh",
-      },
-      {
-        label: "Style your components with SLDS.",
-        icon: "utility:brush",
-      },
-    ];
-  }
- v
+ row1c2(event){
+   
+   this.r1c2 = event.target.value;
+}
+
+row2c1(){
+  this.r2c1 = event.target.value;
+  
+}
+
+row2c2(){
+  
+  this.r2c2 = event.target.value;
+}
+
+
+addInput() {
+this.addRow = true;
+
+}
   exportExcel()
     {
-        var data = ["Mitali", "Mitali", "Mitali","Mitali"];
-        //var data = [[1,2,3,4,5],[11,22,33,44,55],[111,222,333,444,555],[1111,2222,3333,4444,5555]];
-        var keys = ['"Mass(kg)"', '"H2O Mass in Bed(kg)"', '"Bed Temperature(kg)"', '"Evaporation Rate"'];
+      //  var data = ["Mitali", "Mitali", "Mitali","Mitali"];
+        var data = [[this.r1c1,this.r2c1],[this.r1c2,this.r2c2]];
+        var keys = ['"Column1"', '"column2"'];
 
         var convertToCSV = function(data, keys) {
             var orderedData = [];
